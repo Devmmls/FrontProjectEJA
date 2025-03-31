@@ -132,6 +132,34 @@ main {
     align-items: stretch;
     gap: 16px;
 
+    & .botao_salvar {
+      display: flex;
+      column-gap: 40px;
+      justify-content: space-around;
+      & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 20%;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0.2rem;
+        margin-top: 1rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: #f3541c;
+        transition: all 0.2s ease;
+        box-shadow: 1px 1px 0px 0px #fff;
+
+        &:hover {
+          background-color: #360e66ff;
+          color: #d6d3d1;
+          cursor: pointer;
+        }
+      }
+    }
     & :where(.select__option, .trilhas) {
       display: flex;
       align-items: center;
