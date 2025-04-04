@@ -337,11 +337,12 @@ main {
       color: #e43a12;
       cursor: pointer;
     }
-    & input {
+    & input[type="checkbox"] {
       accent-color: #360e66ff;
-      transform: scale(1.5);
+      transform: scale(1.3);
       content: "";
       cursor: pointer;
+      margin-top: 0.2rem;
     }
   }
 }

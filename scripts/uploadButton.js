@@ -1,95 +1,142 @@
-//NÃO É MEU CÓDIGO!!!!!!!!!
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Seleciona os input de arquivo e seus ícones correspondentes
-  let fileInputs = document.querySelectorAll('input[type="file"]');
-  let uploadIcons = document.querySelectorAll("file img"); // Seleciona todas as imagens dentro de elementos com a classe 'form__input__label__file'
-
-  // Seleciona todas as mensagens de validação de arquivo
-  let fileValidationMsgs = document.querySelectorAll(".file-validation-msg");
+  const formulario = document.getElementById("formulario");
+  const fileInputs = document.querySelectorAll('input[type="file"]');
+  const botaoInscrever = document.getElementById("botaoInscrever");
 
   // Adiciona um evento change para cada input file
-  fileInputs.forEach(function (fileInput, index) {
+  fileInputs.forEach(function (fileInput) {
+    const uploadIcon = document.querySelector(
+      `label[for="${fileInput.id}"] img`
+    );
+    const validationMessage = fileInput.nextElementSibling;
+
     fileInput.addEventListener("change", function () {
-      let uploadIcon = uploadIcons[index]; // Seleciona o ícone correspondente ao input atual
-
-      // Verifica se um arquivo foi selecionado
-      if (fileInput.files.length > 0) {
-        // Altera o src da imagem para o ícone de confirmação de envio
-        uploadIcon.src = "./assets/uploadDone.svg";
+      if (this.files.length > 0) {
+        if (uploadIcon) {
+          uploadIcon.src = "./assets/uploadDone.svg";
+        }
+        if (
+          validationMessage &&
+          validationMessage.classList.contains("file-validation-msg")
+        ) {
+          validationMessage.style.display = "none";
+        }
       } else {
-        // Se nenhum arquivo for selecionado, restaura o ícone padrão
-        uploadIcon.src = "./assets/uploadFile.svg"; // Retorna para o ícone padrão
+        if (uploadIcon) {
+          uploadIcon.src = "./assets/uploadFile.svg";
+        }
+        if (
+          validationMessage &&
+          validationMessage.classList.contains("file-validation-msg")
+        ) {
+          validationMessage.style.display = "inline-block";
+        }
       }
-
-      // Verifica se o campo de arquivo está vazio e exibe a mensagem de validação, se necessário
-      let fileValidationMsg = fileValidationMsgs[index]; // Seleciona a mensagem de validação
-      if (fileInput.files.length === 0) {
-        fileValidationMsg.style.display = "inline-block"; // Mostra a mensagem se nenhum arquivo for selecionado
-      } else {
-        fileValidationMsg.style.display = "none"; // Oculta a mensagem se um arquivo for selecionado
-      }
-
-      // Verifica se todos os campos obrigatórios estão preenchidos sempre que houver uma alteração nos campos de arquivo
       checkRequiredFields();
     });
   });
 
-  // Adiciona evento de reset ao formulário para restaurar os ícones padrão após o reset
-  let formulario = document.getElementById("formulario");
+  // Adiciona evento de reset ao formulário
   formulario.addEventListener("reset", function () {
-    uploadIcons.forEach(function (uploadIcon) {
-      uploadIcon.src = "./assets/uploadFile.svg"; // Retorna todos os ícones para o padrão após o reset
+    fileInputs.forEach(function (fileInput) {
+      const uploadIcon = document.querySelector(
+        `label[for="${fileInput.id}"] img`
+      );
+      const validationMessage = fileInput.nextElementSibling;
+      if (uploadIcon) {
+        uploadIcon.src = "./assets/uploadFile.svg";
+      }
+      if (
+        validationMessage &&
+        validationMessage.classList.contains("file-validation-msg")
+      ) {
+        validationMessage.style.display = "none";
+      }
     });
-
-    // Oculta todas as mensagens de validação ao resetar o formulário
-    fileValidationMsgs.forEach(function (fileValidationMsg) {
-      fileValidationMsg.style.display = "none";
-    });
-
-    // Verifica se todos os campos obrigatórios estão preenchidos após o reset do formulário
     checkRequiredFields();
   });
 
-  // Adiciona evento de submit ao formulário para verificar se há campos de arquivo vazios antes de enviar
+  // Adiciona evento de submit para verificar campos de arquivo
   formulario.addEventListener("submit", function (event) {
-    let filesSelected = true;
+    let allFieldsFilled = true;
+    const requiredFields = document.querySelectorAll("[required]");
 
-    fileInputs.forEach(function (fileInput, index) {
-      let fileValidationMsg = fileValidationMsgs[index];
-      if (fileInput.files.length === 0) {
-        fileValidationMsg.style.display = "inline-block"; // Mostra a mensagem se nenhum arquivo for selecionado
-        filesSelected = false;
+    requiredFields.forEach(function (field) {
+      const isFile = field.type === "file";
+      const isEmpty = field.value.trim() === "" && !isFile;
+      const isFileEmpty = isFile && field.files.length === 0;
+      const errorElement = field.nextElementSibling;
+
+      if (isEmpty || isFileEmpty) {
+        allFieldsFilled = false;
+        if (
+          errorElement &&
+          !errorElement.classList.contains("file-validation-msg")
+        ) {
+          errorElement.style.display = "inline-block";
+        }
       } else {
-        fileValidationMsg.style.display = "none"; // Oculta a mensagem se um arquivo for selecionado
+        if (errorElement) {
+          errorElement.style.display = "none";
+        }
+      }
+
+      if (isFile && isFileEmpty && field.hasAttribute("required")) {
+        if (
+          errorElement &&
+          errorElement.classList.contains("file-validation-msg")
+        ) {
+          errorElement.style.display = "inline-block";
+        }
+        allFieldsFilled = false;
       }
     });
 
-    // Impede o envio do formulário se houver campos de arquivo vazios
-    if (!filesSelected) {
-      event.preventDefault();
+    if (!allFieldsFilled) {
+      event.preventDefault(); // Impede o envio se houver campos obrigatórios vazios
     }
   });
 
-  // Função para verificar se todos os campos obrigatórios estão preenchidos
+  // Função para verificar se todos os campos obrigatórios estão preenchidos (principalmente para feedback visual)
   function checkRequiredFields() {
-    let requiredFields = document.querySelectorAll("[required]");
-    let allFieldsFilled = true;
+    const requiredFields = document.querySelectorAll("[required]");
+
     requiredFields.forEach(function (field) {
-      if (!field.value.trim()) {
-        allFieldsFilled = false;
-        field.nextElementSibling.style.display = "inline-block"; // Mostra a mensagem de erro para campos obrigatórios não preenchidos
+      const isFile = field.type === "file";
+      const isEmpty = field.value.trim() === "" && !isFile;
+      const isFileEmpty = isFile && field.files.length === 0;
+      const errorElement = field.nextElementSibling;
+
+      if (isEmpty || isFileEmpty) {
+        if (
+          errorElement &&
+          !errorElement.classList.contains("file-validation-msg")
+        ) {
+          errorElement.style.display = "inline-block";
+        } else if (
+          isFileEmpty &&
+          errorElement &&
+          errorElement.classList.contains("file-validation-msg")
+        ) {
+          errorElement.style.display = "inline-block";
+        }
       } else {
-        field.nextElementSibling.style.display = "none"; // Oculta a mensagem de erro se o campo for preenchido
+        if (errorElement) {
+          errorElement.style.display = "none";
+        }
       }
     });
-
-    // Desativa o botão de enviar se houver campos obrigatórios não preenchidos
-    let submitButton = document.querySelector('[type="submit"]');
-    if (allFieldsFilled) {
-      submitButton.removeAttribute("disabled");
-    } else {
-      submitButton.setAttribute("disabled", "disabled");
-    }
   }
+
+  // Chama a função para verificar os campos obrigatórios inicialmente
+  checkRequiredFields();
+
+  // Adiciona um ouvinte de evento para cada campo obrigatório para verificar em tempo real (feedback visual)
+  const allRequiredFields = document.querySelectorAll("[required]");
+  allRequiredFields.forEach(function (field) {
+    field.addEventListener("input", checkRequiredFields);
+    if (field.type === "checkbox") {
+      field.addEventListener("change", checkRequiredFields);
+    }
+  });
 });
