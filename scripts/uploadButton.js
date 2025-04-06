@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const formulario = document.getElementById("formulario");
   const fileInputs = document.querySelectorAll('input[type="file"]');
-  const botaoInscrever = document.getElementById("botaoInscrever");
 
   // Adiciona um evento change para cada input file
   fileInputs.forEach(function (fileInput) {
@@ -93,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     if (!allFieldsFilled) {
-      event.preventDefault(); // Impede o envio se houver campos obrigatórios vazios
+      event.preventDefault();
     }
   });
 
@@ -120,15 +119,10 @@ document.addEventListener("DOMContentLoaded", function () {
         ) {
           errorElement.style.display = "inline-block";
         }
-      } else {
-        if (errorElement) {
-          errorElement.style.display = "none";
-        }
       }
     });
   }
 
-  // Chama a função para verificar os campos obrigatórios inicialmente
   checkRequiredFields();
 
   // Adiciona um ouvinte de evento para cada campo obrigatório para verificar em tempo real (feedback visual)

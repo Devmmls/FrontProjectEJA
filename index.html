@@ -326,7 +326,7 @@
             </div>
           </div>
 
-          <div class="input__box">
+          <div class="input__box--mobile">
             <label class="form__label" for="motivacao"
               >O que te motiva a participar do programa?*</label
             >
@@ -346,13 +346,16 @@
 
           <div>
             <div class="input__box">
-              <label class="form__label" for="idUsuario">ID do Usuário*</label>
+              <label class="form__label" for="idUsuario"
+                >ID do Usuário(CPF)*</label
+              >
               <input
                 id="idUsuario"
                 class="form__input__preenche"
                 type="text"
                 name="idUsuario"
                 placeholder="Digite seu ID"
+                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
                 required />
             </div>
 
@@ -395,13 +398,13 @@
 
         <img class="aluno" src="./img/aluno.svg" alt="Ilustração de um aluno" />
 
-        <img src="./img/logo do aluno.svg" alt="Logo Inova" />
+        <img class="logoInova" src="./img/logo do aluno.svg" alt="Logo Inova" />
 
         <div class="container__2__inscricao">
           <div class="container__2__declaracao__inscricao">
             <input
               type="checkbox"
-              id="declaracao"
+              id="aceitoTermos"
               form="formulario"
               name="declaracao"
               required />

@@ -231,7 +231,7 @@ main {
       column-gap: 16px;
       font-size: 0.7rem;
       font-weight: 400;
-      font-style: normal;
+      font-style: italic;
       color: #dc2626;
     }
   }
@@ -296,7 +296,6 @@ main {
 
   & .container__2__apresentacao {
     display: flex;
-
     font-weight: 500;
     line-height: 30px;
     width: 100%;
@@ -412,12 +411,117 @@ main {
   }
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 860px) {
+  main {
+    padding: 16px;
+    flex-direction: column;
+    align-items: center;
+    scale: 0.9;
+  }
   body {
-    font-size: 50%;
+    font-size: 62.5%;
+  }
+
+  .container {
+    max-width: 95%;
+    border-radius: 15px;
+    margin-bottom: 16px;
+  }
+
+  .select__option {
+    scale: 0.8;
+  }
+
+  .input__box--mobile,
+  .logoTrilhas,
+  .aluno {
+    display: none;
   }
 
   .container__2 {
-    display: none;
+    display: block;
+    max-width: 95%;
+    border-radius: 15px;
+    box-shadow: none;
+    margin-bottom: 16px;
+    padding: 3%;
+  }
+  .logoInova {
+    scale: 0.4;
+  }
+
+  .container .column .input__box {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .container .form .botao_salvar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .container .form {
+    width: 100%;
+  }
+
+  .container__2 input[type="submit"] {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .rodape {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .popup__wrapper .popup {
+    margin-top: 30%;
+    padding: 20px;
   }
 }
+
+/* ------------------------------ */
+
+/* @media screen and (max-width: 768px) {
+  main {
+    padding: 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 95%;
+    border-radius: 15px;
+    margin-bottom: 16px;
+  }
+
+  .container__2 {
+    display: block;
+    max-width: 95%;
+    border-radius: 15px;
+    box-shadow: none;
+    margin-bottom: 16px;
+    padding: 3%;
+  }
+
+  .container__2 .logoTrilhas {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  .container__2 .container__2__inscricao {
+    gap: 40px;
+  }
+
+  .container__2 .container__2__declaracao__inscricao {
+    margin-bottom: 0;
+
+    .container .column {
+      flex-direction: column;
+      column-gap: 0;
+    }
+  }
+} */

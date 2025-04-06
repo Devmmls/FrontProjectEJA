@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const botaoSalvar = document.getElementById("salvebutton");
   const botaoCancelar = document.getElementById("botaoCancelar");
   const botaoInscrever = document.getElementById("botaoInscrever");
+  const checkboxTermos = document.getElementById("aceitoTermos");
   const popup = document.querySelector(".popup__wrapper");
   const closeButton = popup.querySelector(".popup__close");
 
@@ -58,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Carregar os dados ao carregar a página
   carregarDadosLocalStorage();
 
   // Adicionar um ouvinte de evento para o clique no botão "Salvar"
@@ -93,6 +93,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
+      if (!checkboxTermos.checked) {
+        alert("Você precisa aceitar os termos para se inscrever.");
+        event.preventDefault();
+        return;
+      }
+
       if (allFieldsFilled) {
         popup.style.display = "block";
         event.preventDefault();
@@ -117,7 +123,14 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Botão de fechar do popup não encontrado.");
   }
 
-  // Impede o envio padrão do formulário (a lógica dos botões já está implementada)
+  // Mantém a verificação do checkbox no submit do formulário como uma segurança extra
+  formulario.addEventListener("submit", function (event) {
+    if (!checkboxTermos.checked) {
+      event.preventDefault();
+      alert("Você precisa aceitar os termos para enviar o formulário.");
+    }
+  });
+
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
   });
