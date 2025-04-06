@@ -440,6 +440,10 @@ main {
     display: none;
   }
 
+  .container__2__apresentacao p {
+    width: 80%;
+  }
+
   .container__2 {
     display: block;
     max-width: 95%;
@@ -448,6 +452,7 @@ main {
     margin-bottom: 16px;
     padding: 3%;
   }
+
   .logoInova {
     scale: 0.4;
   }
