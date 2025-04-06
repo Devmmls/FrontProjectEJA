@@ -18,6 +18,14 @@ As tecnologias utilizadas visaram fornecer uma plataforma eficiente e acessível
 programa. Ele deve garantir um processo seguro, organizado e transparente, permitindo a coleta
 e análise eficaz das informações fornecidas pelos candidatos.
 
+# Principais Funcionalidades
+
+- Interface intuitiva para acesso e cadastro
+- Validação de dados automática para evitar erros de preenchimento
+- Envio de confirmações por e-mail com código de inscrição
+- Sistema de acompanhamento do status da candidatura
+- Upload de documentos digitalizados
+
 # Layout 🎨
 
 O layout também foi desenhado.
