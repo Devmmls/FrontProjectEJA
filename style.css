@@ -296,9 +296,10 @@ main {
 
   & .container__2__apresentacao {
     display: flex;
+    align-self: center;
     font-weight: 500;
     line-height: 30px;
-    width: 100%;
+    width: 110%;
     color: #ffffff;
     text-align: justify;
   }
@@ -330,6 +331,7 @@ main {
     margin-left: 24px;
     margin-right: 24px;
     margin-bottom: -50px;
+    width: 100%;
     gap: 8px;
 
     &:hover {
