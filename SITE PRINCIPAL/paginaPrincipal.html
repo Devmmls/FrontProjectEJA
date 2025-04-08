@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="menu.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="interface">
+        <div class="logo">
+          <img
+            src="logos/logoTRILHAS.svg"
+            width="130"
+            height="100"
+            alt="logo__image" />
+        </div>
+        <nav class="menu-desktop">
+          <ul>
+            <li><a href="">Início</a></li>
+            <li><a href="#especialidades">Cursos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#Projetos">Projetos</a></li>
+          </ul>
+        </nav>
+        <div class="btn-contato">
+          <a href="#contatos">
+            <button>Contato</button>
+          </a>
+        </div>
+
+        <div class="btn-abrir-menu" id="btn-menu">
+          <i class="bi bi-list"></i>
+        </div>
+        <div class="menu-mobile" id="menu-mobile">
+          <div class="btn-fechar">
+            <i class="bi bi-x-lg"></i>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="">Início</a></li>
+              <li><a href="#especialidades">Cursos</a></li>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#Projetos">Projetos</a></li>
+              <li><a href="#contatos">Contato</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="overlay-menu" id="overlay-menu"></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="topo-do-site">
+        <div class="interface">
+          <div class="flex">
+            <div class="txt-top-site">
+              <h1>
+                JÁ PENSOU EM CRIAR SEUS PRÓPRIOS SITES, APPS OU JOGOS<span
+                  >?</span
+                >
+              </h1>
+              <p class="pr">
+                Programar é como aprender uma nova linguagem — só que essa te dá
+                o poder de construir o futuro! Seja qual for sua área, a
+                programação pode abrir novas portas e oportunidades. E o melhor:
+                qualquer pessoa pode começar, mesmo do zero.<br /><br />Dê o
+                primeiro passo hoje e descubra o que você é capaz de criar com
+                código! 🚀
+              </p>
+              <div class="btn-contato">
+                <button id="btn-inscreva">INSCREVA-SE</button>
+              </div>
+            </div>
+            <div class="img-topo-site">
+              <img src="logos/aluno.svg" class="img-s" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="especialidades" id="especialidades">
+        <div class="interface">
+          <h2 class="titulo">NOSSOS <span>CURSOS</span></h2>
+          <div class="flex">
+            <div class="especialidades-box">
+              <i class="bi bi-bar-chart"></i>
+              <h3>DADOS</h3>
+              <p>
+                Ciência de dados: Análise, estatística, previsão, insights,
+                automação.
+              </p>
+            </div>
+
+            <div class="especialidades-box">
+              <i class="bi bi-border"></i>
+              <h3>BACK-END</h3>
+              <p>Lógica, dados, servidor, segurança, desempenho.</p>
+            </div>
+
+            <div class="especialidades-box">
+              <i class="bi bi-border-all"></i>
+              <h3>FRONT-END</h3>
+              <p>Visual, interativo, responsivo, acessível e dinâmico.</p>
+            </div>
+
+            <div class="especialidades-box">
+              <i class="bi bi-controller"></i>
+              <h3>JOGOS</h3>
+              <p>Interatividade, lógica, design, diversão, imersão.</p>
+            </div>
+
+            <div class="especialidades-box">
+              <i class="bi bi-laptop"></i>
+              <h3>UX Design</h3>
+              <p>
+                Usabilidade, acessibilidade, experiência, interação, empatia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sobre" id="sobre">
+        <div class="interface">
+          <div class="flex">
+            <div class="img-sobre">
+              <img
+                src="logos/INOVACE.png"
+                alt="imagem-vital"
+                width="200"
+                height="400" />
+            </div>
+            <div class="txt-sobre">
+              <h2>MUITO PRAZER, <span>SOMOS O INOVA MARANHÃO</span></h2>
+              <p>
+                O Inova Maranhão é um Programa do Governo do Estado veiculado à
+                Secretaria de Estado da Ciência, Tecnologia e Inovação (SECTI)
+                que tem como objetivo estimular junto à sociedade maranhense o
+                desenvolvimento de ações voltadas para a inovação,
+                empreendedorismo, desenvolvimento tecnológico, desenvolvimento
+                sustentável e inovação social. O programa nasceu em 2015,
+                inicialmente somente com um programa de incubação de Startup e
+                atualmente possui oito eixos estratégicos.
+              </p>
+
+              <div class="btn-social">
+                <a
+                  href="https://www.instagram.com/inovamaranhao/"
+                  target="_blank"
+                  ><button><i class="bi bi-instagram"></i></button
+                ></a>
+                <a
+                  href="https://www.youtube.com/channel/UCr_n2KPPqE0meSX7pCPlDzw"
+                  target="_blank"
+                  ><button><i class="bi bi-youtube"></i></button
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio" id="Projetos">
+        <div class="interface">
+          <h2 class="titulo">NOSSOS <span>PROJETOS</span></h2>
+          <div class="flex">
+            <div
+              class="img-port"
+              style="background-image: url(images/portfolio.svg)">
+              <div class="overlay">Projeto 1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="formulario" id="contatos">
+        <div class="interface">
+          <h2 class="titulo">FALE <span>CONOSCO</span></h2>
+          <form>
+            <input type="text" placeholder="Seu nome completo:" required />
+            <input type="text" placeholder="Seu e-mail:" required />
+            <input type="text" placeholder="Seu celular:" />
+            <textarea placeholder="Sua mensagem:" required></textarea>
+            <div class="btn-enviar"><input type="submit" value="ENVIAR" /></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="interface">
+        <div class="line-footer">
+          <div class="flex">
+            <div class="logo-footer">
+              <img
+                src="logos/logoTRILHAS.svg"
+                class="apt"
+                width="150"
+                height="100"
+                alt=""
+                style="margin-right: 20px" />
+              <img src="logos/secti.PNG" width="350" height="120" alt="" />
+            </div>
+
+            <div class="btn-social">
+              <a href="https://www.instagram.com/inovamaranhao/" target="_blank"
+                ><button><i class="bi bi-instagram"></i></button
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UCr_n2KPPqE0meSX7pCPlDzw"
+                target="_blank"
+                ><button><i class="bi bi-youtube"></i></button
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="line-footer borda">
+          <p>
+            <i class="bi bi-envelope-at"></i>
+            <a href="mailto:descubra@secti.ma.gov.br"
+              >descubra@secti.ma.gov.br</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      p {
+        text-align: justify;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const botaoInscreva = document.getElementById("btn-inscreva");
+        if (botaoInscreva) {
+          botaoInscreva.addEventListener("click", function () {
+            window.location.href = "../SITE PRINCIPAL/cadastro/cadastro.html";
+          });
+        }
+
+        const form = document.querySelector(".formulario form");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Criar o pop-up
+          const popup = document.createElement("div");
+          popup.classList.add("popup-sucesso");
+          popup.textContent =
+            "Mensagem enviada com sucesso! Entraremos em contato em breve!";
+          document.body.appendChild(popup);
+
+          // Mostrar com animação
+          setTimeout(() => {
+            popup.classList.add("mostrar");
+          }, 10);
+
+          // Sumir depois de 3 segundos
+          setTimeout(() => {
+            popup.classList.remove("mostrar");
+            setTimeout(() => {
+              popup.remove();
+            }, 400);
+          }, 5000);
+
+          form.reset();
+        });
+      });
+    </script>
+  </body>
+</html>
