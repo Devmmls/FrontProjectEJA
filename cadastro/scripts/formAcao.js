@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".select__option input[type='radio'][name='trilhas']"
   );
 
+  // Recupera o CPF e a senha do usuário logado do armazenamento local (localStorage).
   const cpfDoLogin = localStorage.getItem("cpfUsuarioLogado");
   const senhaDoLogin = localStorage.getItem("senhaUsuarioLogado");
   const cpfNoFormularioInput = document.getElementById("cpf");
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ? cpfNoFormularioInput.value
     : null;
 
+  // Controla a exibição da seção de confirmação de login.
   if (camposLoginConfirmacao) {
     if (cpfDoLogin) {
       camposLoginConfirmacao.style.display = "block";
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // Salva os dados do formulário no localStorage.
   function salvarDadosLocalStorage() {
     const camposObrigatorios = formulario.querySelectorAll("[required]");
     let todosPreenchidos = true;
@@ -74,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Carrega os dados do localStorage e preenche o formulário.
   function carregarDadosLocalStorage() {
     const chaveDeCarregamento =
       cpfDoLogin || (cpfNoFormularioInput ? cpfNoFormularioInput.value : null);
@@ -94,12 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   carregarDadosLocalStorage();
 
+  // Adiciona listener para salvar os dados.
   if (botaoSalvar) {
     botaoSalvar.addEventListener("click", salvarDadosLocalStorage);
   } else {
     console.error('Botão "Salvar" não encontrado. Verifique o ID no HTML.');
   }
 
+  // Adiciona listener para resetar o formulário.
   if (botaoCancelar) {
     botaoCancelar.addEventListener("click", function (event) {
       formulario.reset();
@@ -109,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error('Botão "Cancelar" não encontrado. Verifique o ID no HTML.');
   }
 
+  // Adiciona listener para o processo de inscrição.
   if (botaoInscrever) {
     botaoInscrever.addEventListener("click", function (event) {
       event.preventDefault();
@@ -187,6 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // Adiciona listener para fechar o popup.
   if (closeButton) {
     closeButton.addEventListener("click", function () {
       popup.style.display = "none";
@@ -195,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Botão de fechar do popup não encontrado.");
   }
 
+  // Adiciona listener para a submissão do formulário (com validação dos termos).
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!checkboxTermos.checked) {
