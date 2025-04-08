@@ -2,7 +2,7 @@ Projeto realizado para o segundo desafio do programa Trilhas inova 2B
 
 # Formulário de inscrição simples 📝
 
-![Captura de tela 2025-06-04](https://github.com/Devmmls/FrontProjectEJA/blob/main/SITE%20PRINCIPAL/cadastro/assets/formulario-img.png)
+![Captura de tela 2025-06-04](https://github.com/Devmmls/FrontProjectEJA/blob/main/cadastro/assets/formulario-img.png)
 
 # Contexto ✍🏻
 
